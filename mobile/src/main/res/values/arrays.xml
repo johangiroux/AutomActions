@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="spinner_actions">
+        <item>@string/ask_me_to_open</item>
+        <item>@string/open</item>
+        <item>@string/do_noting</item>
+    </string-array>
+
+    <string-array name="spinner_time">
+        <item>@string/anytime</item>
+        <item>@string/morning</item>
+        <item>@string/afternoon</item>
+        <item>@string/evening</item>
+        <item>@string/night</item>
+        <item>@string/at_precisely</item>
+    </string-array>
+
+    <string-array name="spinner_zone_actions">
+        <item>@string/entering</item>
+        <item>@string/exiting</item>
+    </string-array>
+
+</resources>
