@@ -3,7 +3,6 @@ package com.bionicapps.automactions.event;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,21 +32,19 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
 
     @Bind(R.id.spinner_action)
     protected Spinner spinnerActions;
-
     @Bind(R.id.spinner_when)
     protected Spinner spinnerTime;
-
     @Bind(R.id.spinner_when_action)
     protected Spinner spinnerLocationAction;
-
     @Bind(R.id.spinner_addresses)
     protected Spinner spinnerAddresses;
+    @Bind(R.id.edittext_description)
+    protected EditText editTextDescription;
+    @Bind(R.id.button_save)
+    protected Button buttonSave;
 
     @Bind(R.id.edittext_description)
     protected EditText editTextDescription;
-
-    @Bind(R.id.button_save)
-    protected Button buttonSave;
 
     protected CreateEventPresenter createEventPresenter;
 
@@ -102,11 +99,6 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
 
     @Override
     public void eventSaved(Event event) {
-
-    }
-
-    @Override
-    public void showActions(boolean showActionButtons) {
 
     }
 

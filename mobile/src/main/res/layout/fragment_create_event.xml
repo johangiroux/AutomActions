@@ -115,73 +115,38 @@
             android:orientation="horizontal">
 
             <TextView
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="?selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:padding="10dp"
+                style="@style/DaysTextView.Action"
+                android:id="@+id/action_day_monday"
                 android:text="M"/>
 
             <TextView
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="?selectableItemBackgroundBorderless"
-                android:gravity="center"
-                android:padding="10dp"
+                style="@style/DaysTextView.Action"
+                android:id="@+id/action_day_tuesday"
                 android:text="T"/>
 
             <TextView
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="10dp"
-                android:background="@drawable/round_ripple"
+                style="@style/DaysTextView.Action"
+                android:id="@+id/action_day_wednesday"
                 android:text="W"/>
 
             <TextView
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="10dp"
-                android:background="@drawable/round_ripple"
+                style="@style/DaysTextView.Action"
+                android:id="@+id/action_day_thursday"
                 android:text="T"/>
 
             <TextView
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/round_ripple"
-                android:gravity="center"
-                android:padding="10dp"
+                style="@style/DaysTextView.Action"
+                android:id="@+id/action_day_friday"
                 android:text="F"/>
 
             <TextView
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:background="@drawable/round_ripple"
-                android:padding="10dp"
+                style="@style/DaysTextView.Action"
+                android:id="@+id/action_day_saturday"
                 android:text="S"/>
 
             <TextView
-                android:clickable="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/round_ripple"
-                android:gravity="center"
-                android:padding="10dp"
+                style="@style/DaysTextView.Action"
+                android:id="@+id/action_day_sunday"
                 android:text="S"/>
 
         </LinearLayout>
