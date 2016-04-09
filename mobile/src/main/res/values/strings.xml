@@ -26,4 +26,8 @@
     <string name="at_precisely">At precisely</string>
     <string name="entering">Entering</string>
     <string name="exiting">Exiting</string>
+
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+
 </resources>

@@ -2,6 +2,7 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
             tools:context=".event.CreateEventFragment"
             tools:showIn="@layout/content_event">
 
@@ -48,6 +49,7 @@
                 android:textSize="12sp"/>
 
             <Button
+                android:onClick="displayUrlDialog"
                 android:id="@+id/action_type_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -56,6 +58,7 @@
                 android:text="@string/url"
                 android:textSize="12sp"/>
 
+            <!-- not supported yet -->
             <Button
                 android:id="@+id/action_type_custo"
                 android:layout_width="match_parent"
@@ -63,16 +66,19 @@
                 android:layout_weight="1"
                 android:padding="1dp"
                 android:text="@string/custom_actions"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:visibility="gone"/>
 
         </LinearLayout>
 
         <RelativeLayout
+            android:visibility="gone"
             android:id="@+id/action_choosed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <ImageView
+                android:onClick="displayUrlDialog"
                 android:id="@+id/action_choosed_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -115,38 +121,45 @@
             android:orientation="horizontal">
 
             <TextView
-                style="@style/DaysTextView.Action"
                 android:id="@+id/action_day_monday"
+                style="@style/DaysTextView.Action"
+                android:onClick="onDayClick"
                 android:text="M"/>
 
             <TextView
-                style="@style/DaysTextView.Action"
                 android:id="@+id/action_day_tuesday"
+                style="@style/DaysTextView.Action"
+                android:onClick="onDayClick"
                 android:text="T"/>
 
             <TextView
-                style="@style/DaysTextView.Action"
                 android:id="@+id/action_day_wednesday"
+                style="@style/DaysTextView.Action"
+                android:onClick="onDayClick"
                 android:text="W"/>
 
             <TextView
-                style="@style/DaysTextView.Action"
                 android:id="@+id/action_day_thursday"
+                style="@style/DaysTextView.Action"
+                android:onClick="onDayClick"
                 android:text="T"/>
 
             <TextView
-                style="@style/DaysTextView.Action"
                 android:id="@+id/action_day_friday"
+                style="@style/DaysTextView.Action"
+                android:onClick="onDayClick"
                 android:text="F"/>
 
             <TextView
-                style="@style/DaysTextView.Action"
                 android:id="@+id/action_day_saturday"
+                style="@style/DaysTextView.Action"
+                android:onClick="onDayClick"
                 android:text="S"/>
 
             <TextView
-                style="@style/DaysTextView.Action"
                 android:id="@+id/action_day_sunday"
+                style="@style/DaysTextView.Action"
+                android:onClick="onDayClick"
                 android:text="S"/>
 
         </LinearLayout>
@@ -207,10 +220,10 @@
 
         <Button
             android:id="@+id/button_save"
-            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
             android:maxWidth="300dp"
             android:text="@string/save_event"/>
     </LinearLayout>

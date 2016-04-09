@@ -14,14 +14,14 @@ public class ActionType extends RealmObject {
     }
 
 
-    private String enumDescription;
+    private String enumActionType;
 
     public void saveEnum(ActionTypeEnum val) {
-        this.enumDescription = val.toString();
+        this.enumActionType = val.toString();
     }
 
     public ActionTypeEnum getEnum() {
-        return ActionTypeEnum.valueOf(enumDescription);
+        return ActionTypeEnum.valueOf(enumActionType);
     }
 
 }

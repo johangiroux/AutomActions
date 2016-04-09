@@ -1,8 +1,10 @@
 package com.bionicapps.automactions.event;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.bionicapps.automactions.R;
+import com.bionicapps.automactions.model.Action;
+import com.bionicapps.automactions.model.ActionIntentType;
 import com.bionicapps.automactions.model.Address;
 import com.bionicapps.automactions.model.Event;
 
@@ -42,16 +47,26 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
     protected EditText editTextDescription;
     @Bind(R.id.button_save)
     protected Button buttonSave;
+    @Bind(R.id.action_choosed)
+    protected View actionChoosed;
+    @Bind(R.id.action_choosed_value)
+    protected TextView actionIntent;
+    @Bind(R.id.action_types)
+    protected View actionButtons;
 
-    @Bind(R.id.edittext_description)
-    protected EditText editTextDescription;
 
     protected CreateEventPresenter createEventPresenter;
+
+    protected Event event;
+    protected Action action;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createEventPresenter = new CreateEventPresenterImpl(this);
+        event = new Event();
+        action = new Action();
+        event.setAction(action);
     }
 
     @Override
@@ -80,7 +95,7 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
         RealmResults<Address> addresses = realm.where(Address.class)
                 .findAll();
 
-        ArrayList<Address> arrayList = new ArrayList<>(addresses.size()+1);
+        ArrayList<Address> arrayList = new ArrayList<>(addresses.size() + 1);
         arrayList.addAll(addresses);
         arrayList.add(new Address(0, 0, "Add Address"));
 
@@ -91,6 +106,53 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
         return view;
     }
 
+    protected void clearAction(View view) {
+        actionIntent.setText("");
+        actionChoosed.setVisibility(View.GONE);
+        actionButtons.setVisibility(View.VISIBLE);
+        action = new Action();
+    }
+
+
+    protected void displayUrlDialog(View view) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+        LayoutInflater inflater = LayoutInflater.from(getActivity());
+        final View dialogView = inflater.inflate(R.layout.dialog_edittext, null);
+        dialogBuilder.setView(dialogView);
+
+
+        String value = "";
+        if (event != null && event.getAction() != null) {
+            value = event.getAction().getIntent();
+        }
+
+        final EditText edt = (EditText) dialogView.findViewById(R.id.edit_text);
+        edt.setText(value);
+        edt.setSelection(value.length());
+
+        dialogBuilder.setTitle(R.string.url);
+        dialogBuilder.setPositiveButton(R.string.confirm, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                action.setActionIntentType(new ActionIntentType(ActionIntentType.IntentTypeEnum.URL));
+                action.setIntent(edt.getText().toString());
+                actionIntent.setText(edt.getText().toString());
+                actionChoosed.setVisibility(View.VISIBLE);
+                actionButtons.setVisibility(View.GONE);
+                dialog.dismiss();
+            }
+        });
+        dialogBuilder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+    }
+
+    public void onDayClick(View view) {
+        view.setSelected(view.isSelected());
+    }
 
     @Override
     public void showLoading() {
@@ -104,6 +166,7 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
 
     @Override
     public void showEvent(Event event) {
-
+        this.event = event;
+        action = event.getAction();
     }
 }
