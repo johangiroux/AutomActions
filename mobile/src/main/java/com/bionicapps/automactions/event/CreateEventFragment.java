@@ -1,6 +1,7 @@
 package com.bionicapps.automactions.event;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.Spinner;
 
 import com.bionicapps.automactions.R;
 import com.bionicapps.automactions.model.Address;
+import com.bionicapps.automactions.model.Event;
 
 import java.util.ArrayList;
 
@@ -24,7 +26,7 @@ import io.realm.RealmResults;
 /**
  * Created by johan on 3/21/16.
  */
-public class CreateEventFragment extends Fragment {
+public class CreateEventFragment extends Fragment implements CreateEventFragmentInterface {
 
     public CreateEventFragment() {
     }
@@ -46,6 +48,14 @@ public class CreateEventFragment extends Fragment {
 
     @Bind(R.id.button_save)
     protected Button buttonSave;
+
+    protected CreateEventPresenter createEventPresenter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        createEventPresenter = new CreateEventPresenterImpl(this);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,5 +95,23 @@ public class CreateEventFragment extends Fragment {
     }
 
 
+    @Override
+    public void showLoading() {
 
+    }
+
+    @Override
+    public void eventSaved(Event event) {
+
+    }
+
+    @Override
+    public void showActions(boolean showActionButtons) {
+
+    }
+
+    @Override
+    public void showEvent(Event event) {
+
+    }
 }

@@ -4,23 +4,15 @@ package com.bionicapps.automactions.event;
  * Created by johan on 4/3/16.
  */
 public class CreateEventPresenterImpl implements CreateEventPresenter {
-    @Override
-    public void onActionSelected() {
 
+    private CreateEventFragmentInterface createEventFragmentInterface;
+
+    public CreateEventPresenterImpl(CreateEventFragmentInterface createEventFragmentInterface) {
+        this.createEventFragmentInterface = createEventFragmentInterface;
     }
 
     @Override
-    public void onActionReseted() {
-
-    }
-
-    @Override
-    public void onClickNewAddress() {
-
-    }
-
-    @Override
-    public void onClickPickTime() {
-
+    public void onClickSaveButton() {
+        // save data & exit
     }
 }
