@@ -2,7 +2,6 @@
 gradle-app.setting
 
 mobile/src/main/res/values/google_maps_api.xml
-/*/google_maps_api.xml
 bionicapps.keystore
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
