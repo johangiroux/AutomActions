@@ -24,6 +24,7 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -53,7 +54,6 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
     protected TextView actionIntent;
     @Bind(R.id.action_types)
     protected View actionButtons;
-
 
     protected CreateEventPresenter createEventPresenter;
 
@@ -106,6 +106,7 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
         return view;
     }
 
+    @OnClick(R.id.action_choosed_clear)
     protected void clearAction(View view) {
         actionIntent.setText("");
         actionChoosed.setVisibility(View.GONE);
@@ -113,7 +114,7 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
         action = new Action();
     }
 
-
+    @OnClick(R.id.action_type_url)
     protected void displayUrlDialog(View view) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
         LayoutInflater inflater = LayoutInflater.from(getActivity());
@@ -150,9 +151,13 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
         b.show();
     }
 
+
+    @OnClick({ R.id.action_day_monday, R.id.action_day_tuesday, R.id.action_day_wednesday,
+            R.id.action_day_thursday, R.id.action_day_friday, R.id.action_day_saturday, R.id.action_day_sunday})
     public void onDayClick(View view) {
         view.setSelected(view.isSelected());
     }
+
 
     @Override
     public void showLoading() {

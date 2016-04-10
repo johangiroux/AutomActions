@@ -49,7 +49,6 @@
                 android:textSize="12sp"/>
 
             <Button
-                android:onClick="displayUrlDialog"
                 android:id="@+id/action_type_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,7 +77,6 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:onClick="displayUrlDialog"
                 android:id="@+id/action_choosed_clear"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -123,43 +121,36 @@
             <TextView
                 android:id="@+id/action_day_monday"
                 style="@style/DaysTextView.Action"
-                android:onClick="onDayClick"
                 android:text="M"/>
 
             <TextView
                 android:id="@+id/action_day_tuesday"
                 style="@style/DaysTextView.Action"
-                android:onClick="onDayClick"
                 android:text="T"/>
 
             <TextView
                 android:id="@+id/action_day_wednesday"
                 style="@style/DaysTextView.Action"
-                android:onClick="onDayClick"
                 android:text="W"/>
 
             <TextView
                 android:id="@+id/action_day_thursday"
                 style="@style/DaysTextView.Action"
-                android:onClick="onDayClick"
                 android:text="T"/>
 
             <TextView
                 android:id="@+id/action_day_friday"
                 style="@style/DaysTextView.Action"
-                android:onClick="onDayClick"
                 android:text="F"/>
 
             <TextView
                 android:id="@+id/action_day_saturday"
                 style="@style/DaysTextView.Action"
-                android:onClick="onDayClick"
                 android:text="S"/>
 
             <TextView
                 android:id="@+id/action_day_sunday"
                 style="@style/DaysTextView.Action"
-                android:onClick="onDayClick"
                 android:text="S"/>
 
         </LinearLayout>
