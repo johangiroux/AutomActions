@@ -155,7 +155,7 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
     @OnClick({ R.id.action_day_monday, R.id.action_day_tuesday, R.id.action_day_wednesday,
             R.id.action_day_thursday, R.id.action_day_friday, R.id.action_day_saturday, R.id.action_day_sunday})
     public void onDayClick(View view) {
-        view.setSelected(view.isSelected());
+        view.setSelected(!view.isSelected());
     }
 
 

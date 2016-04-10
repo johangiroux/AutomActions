@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-        android:exitFadeDuration="@android:integer/config_shortAnimTime"
-        android:color="@color/colorAccent">
-    <item android:drawable="@drawable/ripple_selector"/>
-
-</ripple>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <selector>
+            <item
+                android:drawable="@drawable/oval_primary"
+                android:state_selected="true"/>
+            <item android:drawable="@drawable/oval_transparent"/>
+        </selector>
+    </item>
+    <item>
+        <ripple
+            android:color="@color/colorAccent"
+            android:exitFadeDuration="@android:integer/config_shortAnimTime">
+            <item android:id="@android:id/mask">
+                <shape android:shape="oval">
+                    <size
+                        android:width="40dp"
+                        android:height="40dp"/>
+                    <solid
+                        android:color="@color/colorAccent"/>
+                </shape>
+            </item>
+        </ripple>
+    </item>
+</layer-list>
