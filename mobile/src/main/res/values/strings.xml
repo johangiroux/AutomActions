@@ -24,8 +24,10 @@
     <string name="evening">Evening</string>
     <string name="night">Night</string>
     <string name="at_precisely">At precisely</string>
+    <string name="empty"> </string>
     <string name="entering">Entering</string>
     <string name="exiting">Exiting</string>
+    <string name="add_address">Add Address</string>
 
     <string name="confirm">Confirm</string>
     <string name="cancel">Cancel</string>

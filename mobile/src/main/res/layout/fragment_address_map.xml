@@ -6,16 +6,16 @@
             tools:context=".address.AddressMapActivity"
             tools:showIn="@layout/content_address_map">
 
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/enter_address"
         android:layout_margin="5dp"
         android:padding="5dp"/>
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/map_view"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent"/>
 
 </FrameLayout>

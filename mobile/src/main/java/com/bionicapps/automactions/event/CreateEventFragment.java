@@ -1,6 +1,7 @@
 package com.bionicapps.automactions.event;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.bionicapps.automactions.R;
+import com.bionicapps.automactions.address.AddressMapActivity;
 import com.bionicapps.automactions.model.Action;
 import com.bionicapps.automactions.model.ActionIntentType;
 import com.bionicapps.automactions.model.Address;
@@ -60,6 +63,8 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
     protected Event event;
     protected Action action;
 
+    private int selectedPositionAddress;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,13 +100,30 @@ public class CreateEventFragment extends Fragment implements CreateEventFragment
         RealmResults<Address> addresses = realm.where(Address.class)
                 .findAll();
 
-        ArrayList<Address> arrayList = new ArrayList<>(addresses.size() + 1);
+        final ArrayList<Address> arrayList = new ArrayList<>(addresses.size() + 1);
         arrayList.addAll(addresses);
-        arrayList.add(new Address(0, 0, "Add Address"));
+        if (addresses.size() == 0) {
+            arrayList.add(new Address(0, 0, getString(R.string.empty)));
+        }
+        arrayList.add(new Address(0, 0, getString(R.string.add_address)));
 
         AddressAdapter addressAdapter = new AddressAdapter(getActivity(), android.R.layout.simple_spinner_item, arrayList);
         addressAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerAddresses.setAdapter(addressAdapter);
+        spinnerAddresses.setSelection(0, false);
+        spinnerAddresses.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == arrayList.size() - 1) {
+                    startActivity(new Intent(getActivity(), AddressMapActivity.class));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         return view;
     }

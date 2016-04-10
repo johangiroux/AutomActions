@@ -17,6 +17,7 @@
     </string-array>
 
     <string-array name="spinner_zone_actions">
+        <item>@string/empty</item>
         <item>@string/entering</item>
         <item>@string/exiting</item>
     </string-array>
