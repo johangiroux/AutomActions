@@ -1,7 +1,7 @@
 # Ignore Gradle GUI config
 gradle-app.setting
 
-/mobile/src/main/res/values/google_maps_api.xml
+mobile/src/main/res/values/google_maps_api.xml
 /*/google_maps_api.xml
 bionicapps.keystore
 
